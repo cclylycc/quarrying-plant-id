@@ -17,6 +17,7 @@ from PIL import Image
 from pydantic import BaseModel, Field
 
 import plantid
+from plantid.invasive import InvasiveChecker
 
 
 # ==================== configs ====================
@@ -27,7 +28,11 @@ async def lifespan(app: FastAPI):
     # run when start
     print("Loading model...")
     load_model()
+    load_model()
     print("Model loaded！")
+    print("Loading invasive checker...")
+    load_invasive_checker()
+    print("Invasive checker loaded!")
     yield
     # run when shut down
     print("Service shutting down...")
@@ -55,16 +60,19 @@ app.add_middleware(
 )
 
 # Iniciar plant identifier
+# Iniciar plant identifier
 plant_identifier = None
+invasive_checker = None
 
 
 # ==================== Model ====================
 
 class PlantResult(BaseModel):
     """Results plant"""
-    chinese_name: str = Field(..., description="Chinese Name")
+    ##chinese_name: str = Field(..., description="Chinese Name")
     latin_name: str = Field(..., description="Latin Name")
     probability: float = Field(..., description="Probabilidad", ge=0, le=1)
+    invasive_info: Optional[dict] = Field(default=None, description="Invasive species information")
 
 
 class IdentifyResponse(BaseModel):
@@ -91,6 +99,14 @@ def load_model():
     if plant_identifier is None:
         plant_identifier = plantid.PlantIdentifier()
     return plant_identifier
+
+
+def load_invasive_checker():
+    """Load invasive checker"""
+    global invasive_checker
+    if invasive_checker is None:
+        invasive_checker = InvasiveChecker()
+    return invasive_checker
 
 
 async def read_image_file(file: UploadFile) -> np.ndarray:
@@ -173,7 +189,8 @@ async def health_check():
 @app.post("/identify", response_model=IdentifyResponse, tags=["Identificación"])
 async def identify_plant(
     file: UploadFile = File(..., description="Identificación de plantas API, usa jpg,png..."),
-    topk: int = Query(5, ge=1, le=20, description="Return 5 results")
+    topk: int = Query(5, ge=1, le=20, description="Return 5 results"),
+    location: Optional[str] = Query(None, description="User location for invasive species check")
 ):
     """
     Return example：
@@ -209,6 +226,14 @@ async def identify_plant(
     # run identify
     start_time = time.time()
     outputs = identifier.identify(image, topk=topk)
+    
+    # Invasive check for the top result
+    if location and outputs['status'] == 0 and outputs['results']:
+        checker = load_invasive_checker()
+        top_result = outputs['results'][0]
+        invasive_info = await checker.check_invasive(top_result['latin_name'], location)
+        top_result['invasive_info'] = invasive_info
+        
     inference_time = time.time() - start_time
 
     # response
@@ -226,12 +251,20 @@ async def identify_plant(
 
 @app.post("/identify/quick", tags=["identift quick only ONE result"])
 async def identify_plant_quick(
-    file: UploadFile = File(..., description="Upload plant image")
+    file: UploadFile = File(..., description="Upload plant image"),
+    location: Optional[str] = Query(None, description="User location for invasive species check")
 ):
     image = await read_image_file(file)
     identifier = load_model()
     start_time = time.time()
     outputs = identifier.identify(image, topk=1)
+    
+    invasive_info = None
+    if location and outputs['status'] == 0 and outputs['results']:
+        checker = load_invasive_checker()
+        top_result = outputs['results'][0]
+        invasive_info = await checker.check_invasive(top_result['latin_name'], location)
+        
     inference_time = time.time() - start_time
 
     if outputs['status'] != 0:
@@ -248,9 +281,10 @@ async def identify_plant_quick(
         "status": 0,
         "message": "True",
         "inference_time": round(inference_time, 4),
-        "chinese_name": result['chinese_name'],
+        ##"chinese_name": result['chinese_name'],
         "latin_name": result['latin_name'],
-        "probability": result['probability']
+        "probability": result['probability'],
+        "invasive_info": invasive_info
     }
 
 
@@ -314,7 +348,7 @@ if __name__ == "__main__":
     import uvicorn
     uvicorn.run(
         "app:app",
-        host="0.0.0.0",
+        host="127.0.0.1",
         port=8000,
         reload=True
     )

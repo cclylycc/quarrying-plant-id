@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>植物识别系统</title>
+    <title>Sistema de Identificación de Plantas</title>
     <style>
         * {
             margin: 0;
@@ -82,6 +83,31 @@
             display: none;
         }
 
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .input-field:focus {
+            border-color: #667eea;
+            outline: none;
+        }
+
         #preview {
             margin: 20px 0;
             text-align: center;
@@ -140,8 +166,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .results {
@@ -180,26 +211,31 @@
             border-left: 4px solid #667eea;
         }
 
-        .result-item:nth-child(2) { border-left-color: #7c3aed; }
-        .result-item:nth-child(3) { border-left-color: #8b5cf6; }
-        .result-item:nth-child(4) { border-left-color: #a78bfa; }
-        .result-item:nth-child(5) { border-left-color: #c4b5fd; }
+        .result-item:nth-child(2) {
+            border-left-color: #7c3aed;
+        }
+
+        .result-item:nth-child(3) {
+            border-left-color: #8b5cf6;
+        }
+
+        .result-item:nth-child(4) {
+            border-left-color: #a78bfa;
+        }
+
+        .result-item:nth-child(5) {
+            border-left-color: #c4b5fd;
+        }
 
         .plant-name {
             flex: 1;
         }
 
-        .chinese-name {
+        .latin-name {
             font-size: 18px;
             font-weight: bold;
             color: #333;
             margin-bottom: 4px;
-        }
-
-        .latin-name {
-            font-size: 14px;
-            color: #666;
-            font-style: italic;
         }
 
         .probability {
@@ -207,6 +243,37 @@
             font-weight: bold;
             color: #667eea;
             margin-left: 15px;
+        }
+
+        .invasive-alert {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .invasive-alert.high {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+        }
+
+        .invasive-alert.medium {
+            background-color: #fff3e0;
+            color: #ef6c00;
+            border: 1px solid #ffe0b2;
+        }
+
+        .invasive-alert.low {
+            background-color: #f1f8e9;
+            color: #33691e;
+            border: 1px solid #dcedc8;
+        }
+
+        .invasive-alert.none {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
         }
 
         .inference-time {
@@ -250,43 +317,53 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>🌿 植物识别系统</h1>
-        <p class="subtitle">支持 4,066 种植物识别 • AI 驱动 • 准确率 95.9%</p>
+        <h1>🌿 Sistema de Identificación de Plantas</h1>
+        <p class="subtitle">Identifica 4,066 especies • Impulsado por IA • Precisión 95.9%</p>
 
         <div class="upload-area" id="uploadArea">
             <div class="upload-icon">📷</div>
-            <div class="upload-text">点击或拖拽上传植物图片</div>
-            <div class="upload-hint">支持 JPG、PNG 等格式</div>
+            <div class="upload-text">Haz clic o arrastra una imagen aquí</div>
+            <div class="upload-hint">Soporta JPG, PNG, etc.</div>
         </div>
 
         <input type="file" id="fileInput" accept="image/*">
 
+        <div class="input-group">
+            <label class="input-label" for="locationInput">📍 Ubicación (para detección de especies invasoras)</label>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="locationInput" class="input-field" placeholder="Ej: España, Madrid, China...">
+                <button id="detectLocationBtn" class="btn"
+                    style="width: auto; margin-top: 0; padding: 10px 20px; font-size: 14px;">📍 Detectar</button>
+            </div>
+        </div>
+
         <div id="preview"></div>
 
-        <button class="btn" id="identifyBtn" disabled>开始识别</button>
+        <button class="btn" id="identifyBtn" disabled>Comenzar Identificación</button>
 
         <div class="loading" id="loading">
             <div class="spinner"></div>
-            <div>正在识别中，请稍候...</div>
+            <div>Identificando, por favor espere...</div>
         </div>
 
         <div class="error" id="error"></div>
 
         <div class="results" id="results">
             <div class="result-card">
-                <div class="result-title">🌱 种级别识别结果</div>
+                <div class="result-title">🌱 Resultados (Especie)</div>
                 <div id="speciesResults"></div>
             </div>
 
             <div class="result-card">
-                <div class="result-title">🌳 属级别识别结果</div>
+                <div class="result-title">🌳 Resultados (Género)</div>
                 <div id="genusResults"></div>
             </div>
 
             <div class="result-card">
-                <div class="result-title">🌲 科级别识别结果</div>
+                <div class="result-title">🌲 Resultados (Familia)</div>
                 <div id="familyResults"></div>
             </div>
 
@@ -296,9 +373,11 @@
 
     <script>
         const API_URL = 'http://localhost:8000';
-        
+
         const uploadArea = document.getElementById('uploadArea');
         const fileInput = document.getElementById('fileInput');
+        const locationInput = document.getElementById('locationInput');
+        const detectLocationBtn = document.getElementById('detectLocationBtn');
         const preview = document.getElementById('preview');
         const identifyBtn = document.getElementById('identifyBtn');
         const loading = document.getElementById('loading');
@@ -311,12 +390,12 @@
 
         let selectedFile = null;
 
-        // 点击上传区域
+        // Clic en área de carga
         uploadArea.addEventListener('click', () => {
             fileInput.click();
         });
 
-        // 拖拽上传
+        // Arrastrar y soltar
         uploadArea.addEventListener('dragover', (e) => {
             e.preventDefault();
             uploadArea.classList.add('dragover');
@@ -335,7 +414,7 @@
             }
         });
 
-        // 文件选择
+        // Selección de archivo
         fileInput.addEventListener('change', (e) => {
             const file = e.target.files[0];
             if (file) {
@@ -343,40 +422,47 @@
             }
         });
 
-        // 处理文件
+        // Manejar archivo
         function handleFile(file) {
             selectedFile = file;
-            
-            // 显示预览
+
+            // Mostrar vista previa
             const reader = new FileReader();
             reader.onload = (e) => {
-                preview.innerHTML = `<img id="previewImg" src="${e.target.result}" alt="预览图">`;
+                preview.innerHTML = `<img id="previewImg" src="${e.target.result}" alt="Vista previa">`;
                 identifyBtn.disabled = false;
             };
             reader.readAsDataURL(file);
 
-            // 隐藏之前的结果
+            // Ocultar resultados anteriores
             results.classList.remove('show');
             error.classList.remove('show');
         }
 
-        // 识别按钮
+        // Botón de identificación
         identifyBtn.addEventListener('click', async () => {
             if (!selectedFile) return;
 
-            // 显示加载状态
+            // Mostrar estado de carga
             loading.classList.add('show');
             identifyBtn.disabled = true;
             results.classList.remove('show');
             error.classList.remove('show');
 
             try {
-                // 准备表单数据
+                // Preparar datos del formulario
                 const formData = new FormData();
                 formData.append('file', selectedFile);
 
-                // 发送请求
-                const response = await fetch(`${API_URL}/identify?topk=5`, {
+                // Añadir ubicación si existe
+                const location = locationInput.value.trim();
+                let url = `${API_URL}/identify?topk=5`;
+                if (location) {
+                    url += `&location=${encodeURIComponent(location)}`;
+                }
+
+                // Enviar solicitud
+                const response = await fetch(url, {
                     method: 'POST',
                     body: formData
                 });
@@ -384,75 +470,166 @@
                 const data = await response.json();
 
                 if (data.status === 0) {
-                    // 显示结果
+                    // Mostrar resultados
                     displayResults(data);
                 } else {
                     showError(data.message);
                 }
             } catch (err) {
-                showError('识别失败，请检查服务是否正常运行：' + err.message);
+                showError('Error en la identificación. Verifique que el servicio esté funcionando: ' + err.message);
             } finally {
                 loading.classList.remove('show');
                 identifyBtn.disabled = false;
             }
         });
 
-        // 显示结果
+        // Mostrar resultados
         function displayResults(data) {
-            // 种级别结果
+            // Resultados de especie
             speciesResults.innerHTML = data.results
-                .map(item => createResultItem(item))
+                .map((item, index) => createResultItem(item, index === 0)) // Solo mostrar info invasora en el primer resultado
                 .join('');
 
-            // 属级别结果
+            // Resultados de género
             genusResults.innerHTML = data.genus_results.slice(0, 3)
-                .map(item => createResultItem(item))
+                .map(item => createResultItem(item, false))
                 .join('');
 
-            // 科级别结果
+            // Resultados de familia
             familyResults.innerHTML = data.family_results.slice(0, 3)
-                .map(item => createResultItem(item))
+                .map(item => createResultItem(item, false))
                 .join('');
 
-            // 推理时间
-            inferenceTime.textContent = `识别耗时: ${data.inference_time.toFixed(4)} 秒`;
+            // Tiempo de inferencia
+            inferenceTime.textContent = `Tiempo de inferencia: ${data.inference_time.toFixed(4)} s`;
 
             results.classList.add('show');
         }
 
-        // 创建结果项
-        function createResultItem(item) {
+        // Crear elemento de resultado
+        function createResultItem(item, showInvasiveInfo) {
             const probability = (item.probability * 100).toFixed(2);
+
+            let invasiveHtml = '';
+            if (showInvasiveInfo && item.invasive_info) {
+                const info = item.invasive_info;
+                let alertClass = 'none';
+                let alertText = 'No es una especie invasora conocida en esta ubicación.';
+
+                if (info.is_invasive) {
+                    if (info.severity === 'High') alertClass = 'high';
+                    else if (info.severity === 'Medium') alertClass = 'medium';
+                    else alertClass = 'low';
+                    alertText = `⚠️ <strong>Especie Invasora (${info.severity || 'Riesgo desconocido'})</strong><br>${info.reason}`;
+                } else if (info.reason) {
+                    alertText = `✅ ${info.reason}`;
+                }
+
+                invasiveHtml = `<div class="invasive-alert ${alertClass}">${alertText}</div>`;
+            }
+
             return `
-                <div class="result-item">
-                    <div class="plant-name">
-                        <div class="chinese-name">${item.chinese_name}</div>
-                        <div class="latin-name">${item.latin_name || '暂无拉丁名'}</div>
+                <div class="result-item-container">
+                    <div class="result-item">
+                        <div class="plant-name">
+                            <div class="latin-name">${item.latin_name || 'Nombre latino no disponible'}</div>
+                        </div>
+                        <div class="probability">${probability}%</div>
                     </div>
-                    <div class="probability">${probability}%</div>
+                    ${invasiveHtml}
                 </div>
             `;
         }
 
-        // 显示错误
+        // Mostrar error
         function showError(message) {
             error.textContent = message;
             error.classList.add('show');
         }
 
-        // 检查 API 是否可用
+        // Comprobar API
         async function checkAPI() {
             try {
                 const response = await fetch(`${API_URL}/health`);
                 const data = await response.json();
-                console.log('API 状态:', data);
+                console.log('Estado de API:', data);
             } catch (err) {
-                console.warn('API 连接失败，请确保后端服务已启动');
+                console.warn('Fallo de conexión API');
             }
         }
 
         checkAPI();
+
+        // Detectar ubicación
+        detectLocationBtn.addEventListener('click', () => {
+            if (!navigator.geolocation) {
+                alert('Su navegador no soporta geolocalización.');
+                return;
+            }
+
+            detectLocationBtn.disabled = true;
+            detectLocationBtn.textContent = 'Detectando...';
+
+            navigator.geolocation.getCurrentPosition(async (position) => {
+                const { latitude, longitude } = position.coords;
+                try {
+                    const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`);
+                    const data = await response.json();
+                    const address = data.address;
+                    // Prefer city, then town, then village, then country
+                    const location = address.city || address.town || address.village || address.country;
+                    const country = address.country;
+
+                    let locationStr = location;
+                    if (location && country && location !== country) {
+                        locationStr = `${location}, ${country}`;
+                    } else if (!location && country) {
+                        locationStr = country;
+                    }
+
+                    locationInput.value = locationStr || '';
+                } catch (err) {
+                    console.error('Error geocoding:', err);
+                    alert('No se pudo obtener la ubicación automáticamente.');
+                } finally {
+                    detectLocationBtn.disabled = false;
+                    detectLocationBtn.textContent = '📍 Detectar';
+                }
+            }, async (err) => {
+                console.warn('Geolocation blocked/failed, trying IP fallback:', err);
+                detectLocationBtn.textContent = 'Usando IP...';
+
+                // Fallback to IP-based location
+                try {
+                    // Try ipapi.co first
+                    const response = await fetch('https://ipapi.co/json/');
+                    const data = await response.json();
+
+                    const location = data.city;
+                    const country = data.country_name;
+
+                    let locationStr = location;
+                    if (location && country && location !== country) {
+                        locationStr = `${location}, ${country}`;
+                    } else if (!location && country) {
+                        locationStr = country;
+                    }
+
+                    if (locationStr) {
+                        locationInput.value = locationStr;
+                    } else {
+                        throw new Error('IP location returned empty');
+                    }
+                } catch (ipErr) {
+                    console.error('IP fallback error:', ipErr);
+                    alert('No se pudo obtener la ubicación (GPS requiere HTTPS y la detección por IP falló). Por favor, ingrésela manualmente.');
+                } finally {
+                    detectLocationBtn.disabled = false;
+                    detectLocationBtn.textContent = '📍 Detectar';
+                }
+            });
+        });
     </script>
 </body>
-</html>
 
+</html>

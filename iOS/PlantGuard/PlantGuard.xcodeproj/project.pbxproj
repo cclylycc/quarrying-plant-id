@@ -1,0 +1,568 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA000001 /* PlantGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000002 /* PlantGuardApp.swift */; };
+		AA000005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA000006 /* Assets.xcassets */; };
+		AA000007 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA000008 /* Preview Assets.xcassets */; };
+		F52F75662ED4BE9800A1ED7C /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75592ED4BE9800A1ED7C /* AppTheme.swift */; };
+		F52F75672ED4BE9800A1ED7C /* LocalStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75562ED4BE9800A1ED7C /* LocalStorageService.swift */; };
+		F52F75682ED4BE9800A1ED7C /* ReportFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75612ED4BE9800A1ED7C /* ReportFlowView.swift */; };
+		F52F75692ED4BE9800A1ED7C /* HistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F755E2ED4BE9800A1ED7C /* HistoryListView.swift */; };
+		F52F756A2ED4BE9800A1ED7C /* HistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75552ED4BE9800A1ED7C /* HistoryRepository.swift */; };
+		F52F756B2ED4BE9800A1ED7C /* ReportRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75572ED4BE9800A1ED7C /* ReportRepository.swift */; };
+		F52F756C2ED4BE9800A1ED7C /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F754E2ED4BE9800A1ED7C /* UserAccount.swift */; };
+		F52F756D2ED4BE9800A1ED7C /* InvasiveInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F754A2ED4BE9800A1ED7C /* InvasiveInfo.swift */; };
+		F52F756E2ED4BE9800A1ED7C /* IdentificationResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75602ED4BE9800A1ED7C /* IdentificationResultView.swift */; };
+		F52F756F2ED4BE9800A1ED7C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75522ED4BE9800A1ED7C /* LocationService.swift */; };
+		F52F75702ED4BE9800A1ED7C /* ReportRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F754D2ED4BE9800A1ED7C /* ReportRecord.swift */; };
+		F52F75712ED4BE9800A1ED7C /* PlantSpecies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F754B2ED4BE9800A1ED7C /* PlantSpecies.swift */; };
+		F52F75722ED4BE9800A1ED7C /* CameraCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75452ED4BE9800A1ED7C /* CameraCaptureView.swift */; };
+		F52F75732ED4BE9800A1ED7C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75432ED4BE9800A1ED7C /* AuthService.swift */; };
+		F52F75742ED4BE9800A1ED7C /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75482ED4BE9800A1ED7C /* Achievement.swift */; };
+		F52F75752ED4BE9800A1ED7C /* MockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75532ED4BE9800A1ED7C /* MockDataService.swift */; };
+		F52F75762ED4BE9800A1ED7C /* IdentificationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75492ED4BE9800A1ED7C /* IdentificationRecord.swift */; };
+		F52F75772ED4BE9800A1ED7C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75632ED4BE9800A1ED7C /* ProfileView.swift */; };
+		F52F75782ED4BE9800A1ED7C /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75502ED4BE9800A1ED7C /* NetworkingService.swift */; };
+		F52F75792ED4BE9800A1ED7C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F755F2ED4BE9800A1ED7C /* HomeView.swift */; };
+		F52F757A2ED4BE9800A1ED7C /* FloatingCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75462ED4BE9800A1ED7C /* FloatingCameraButton.swift */; };
+		F52F757B2ED4BE9800A1ED7C /* QuickIdentificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F754C2ED4BE9800A1ED7C /* QuickIdentificationResponse.swift */; };
+		F52F757C2ED4BE9800A1ED7C /* EncyclopediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F755C2ED4BE9800A1ED7C /* EncyclopediaView.swift */; };
+		F52F757E2ED4BF7300A1ED7C /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F757D2ED4BF7300A1ED7C /* MainTabView.swift */; };
+		F52F75822ED4FBA400A1ED7C /* PrivacySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75812ED4FBA400A1ED7C /* PrivacySettingsView.swift */; };
+		F52F75832ED4FBA400A1ED7C /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F757F2ED4FBA400A1ED7C /* GeneralSettingsView.swift */; };
+		F52F75842ED4FBA400A1ED7C /* HelpSupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75802ED4FBA400A1ED7C /* HelpSupportView.swift */; };
+		F52F758A2ED500FE00A1ED7C /* AppColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F75892ED500FE00A1ED7C /* AppColorScheme.swift */; };
+		F52F758C2ED5041F00A1ED7C /* ThemeToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F758B2ED5041F00A1ED7C /* ThemeToggleButton.swift */; };
+		F52F758E2ED51C0600A1ED7C /* InvasiveSpeciesDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F758D2ED51C0600A1ED7C /* InvasiveSpeciesDatabase.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA000000 /* PlantGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA000002 /* PlantGuardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantGuardApp.swift; sourceTree = "<group>"; };
+		AA000006 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA000008 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AA000200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F52F75432ED4BE9800A1ED7C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		F52F75452ED4BE9800A1ED7C /* CameraCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCaptureView.swift; sourceTree = "<group>"; };
+		F52F75462ED4BE9800A1ED7C /* FloatingCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingCameraButton.swift; sourceTree = "<group>"; };
+		F52F75482ED4BE9800A1ED7C /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
+		F52F75492ED4BE9800A1ED7C /* IdentificationRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentificationRecord.swift; sourceTree = "<group>"; };
+		F52F754A2ED4BE9800A1ED7C /* InvasiveInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvasiveInfo.swift; sourceTree = "<group>"; };
+		F52F754B2ED4BE9800A1ED7C /* PlantSpecies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantSpecies.swift; sourceTree = "<group>"; };
+		F52F754C2ED4BE9800A1ED7C /* QuickIdentificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickIdentificationResponse.swift; sourceTree = "<group>"; };
+		F52F754D2ED4BE9800A1ED7C /* ReportRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportRecord.swift; sourceTree = "<group>"; };
+		F52F754E2ED4BE9800A1ED7C /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		F52F75502ED4BE9800A1ED7C /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		F52F75522ED4BE9800A1ED7C /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		F52F75532ED4BE9800A1ED7C /* MockDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataService.swift; sourceTree = "<group>"; };
+		F52F75552ED4BE9800A1ED7C /* HistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRepository.swift; sourceTree = "<group>"; };
+		F52F75562ED4BE9800A1ED7C /* LocalStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageService.swift; sourceTree = "<group>"; };
+		F52F75572ED4BE9800A1ED7C /* ReportRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportRepository.swift; sourceTree = "<group>"; };
+		F52F75592ED4BE9800A1ED7C /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		F52F755C2ED4BE9800A1ED7C /* EncyclopediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncyclopediaView.swift; sourceTree = "<group>"; };
+		F52F755E2ED4BE9800A1ED7C /* HistoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListView.swift; sourceTree = "<group>"; };
+		F52F755F2ED4BE9800A1ED7C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F52F75602ED4BE9800A1ED7C /* IdentificationResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentificationResultView.swift; sourceTree = "<group>"; };
+		F52F75612ED4BE9800A1ED7C /* ReportFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFlowView.swift; sourceTree = "<group>"; };
+		F52F75632ED4BE9800A1ED7C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		F52F757D2ED4BF7300A1ED7C /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		F52F757F2ED4FBA400A1ED7C /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
+		F52F75802ED4FBA400A1ED7C /* HelpSupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpSupportView.swift; sourceTree = "<group>"; };
+		F52F75812ED4FBA400A1ED7C /* PrivacySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySettingsView.swift; sourceTree = "<group>"; };
+		F52F75892ED500FE00A1ED7C /* AppColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorScheme.swift; sourceTree = "<group>"; };
+		F52F758B2ED5041F00A1ED7C /* ThemeToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeToggleButton.swift; sourceTree = "<group>"; };
+		F52F758D2ED51C0600A1ED7C /* InvasiveSpeciesDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvasiveSpeciesDatabase.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA000009 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA000010 = {
+			isa = PBXGroup;
+			children = (
+				AA000011 /* PlantGuard */,
+				AA000012 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA000011 /* PlantGuard */ = {
+			isa = PBXGroup;
+			children = (
+				F52F757D2ED4BF7300A1ED7C /* MainTabView.swift */,
+				AA000002 /* PlantGuardApp.swift */,
+				AA000200 /* Info.plist */,
+				AA000006 /* Assets.xcassets */,
+				AA000013 /* Preview Content */,
+				F52F755B2ED4BE9800A1ED7C /* Core */,
+				F52F75652ED4BE9800A1ED7C /* Features */,
+			);
+			path = PlantGuard;
+			sourceTree = "<group>";
+		};
+		AA000012 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000 /* PlantGuard.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA000013 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AA000008 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F52F75442ED4BE9800A1ED7C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F52F75432ED4BE9800A1ED7C /* AuthService.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		F52F75472ED4BE9800A1ED7C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F52F75452ED4BE9800A1ED7C /* CameraCaptureView.swift */,
+				F52F75462ED4BE9800A1ED7C /* FloatingCameraButton.swift */,
+				F52F758B2ED5041F00A1ED7C /* ThemeToggleButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F52F754F2ED4BE9800A1ED7C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F52F75482ED4BE9800A1ED7C /* Achievement.swift */,
+				F52F75492ED4BE9800A1ED7C /* IdentificationRecord.swift */,
+				F52F754A2ED4BE9800A1ED7C /* InvasiveInfo.swift */,
+				F52F754B2ED4BE9800A1ED7C /* PlantSpecies.swift */,
+				F52F754C2ED4BE9800A1ED7C /* QuickIdentificationResponse.swift */,
+				F52F754D2ED4BE9800A1ED7C /* ReportRecord.swift */,
+				F52F754E2ED4BE9800A1ED7C /* UserAccount.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F52F75512ED4BE9800A1ED7C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F52F75502ED4BE9800A1ED7C /* NetworkingService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F52F75542ED4BE9800A1ED7C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F52F75522ED4BE9800A1ED7C /* LocationService.swift */,
+				F52F75532ED4BE9800A1ED7C /* MockDataService.swift */,
+				F52F758D2ED51C0600A1ED7C /* InvasiveSpeciesDatabase.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F52F75582ED4BE9800A1ED7C /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				F52F75552ED4BE9800A1ED7C /* HistoryRepository.swift */,
+				F52F75562ED4BE9800A1ED7C /* LocalStorageService.swift */,
+				F52F75572ED4BE9800A1ED7C /* ReportRepository.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		F52F755A2ED4BE9800A1ED7C /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				F52F75592ED4BE9800A1ED7C /* AppTheme.swift */,
+				F52F75892ED500FE00A1ED7C /* AppColorScheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		F52F755B2ED4BE9800A1ED7C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F52F75442ED4BE9800A1ED7C /* Auth */,
+				F52F75472ED4BE9800A1ED7C /* Components */,
+				F52F754F2ED4BE9800A1ED7C /* Models */,
+				F52F75512ED4BE9800A1ED7C /* Networking */,
+				F52F75542ED4BE9800A1ED7C /* Services */,
+				F52F75582ED4BE9800A1ED7C /* Storage */,
+				F52F755A2ED4BE9800A1ED7C /* Theme */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F52F755D2ED4BE9800A1ED7C /* Encyclopedia */ = {
+			isa = PBXGroup;
+			children = (
+				F52F755C2ED4BE9800A1ED7C /* EncyclopediaView.swift */,
+			);
+			path = Encyclopedia;
+			sourceTree = "<group>";
+		};
+		F52F75622ED4BE9800A1ED7C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F52F755E2ED4BE9800A1ED7C /* HistoryListView.swift */,
+				F52F755F2ED4BE9800A1ED7C /* HomeView.swift */,
+				F52F75602ED4BE9800A1ED7C /* IdentificationResultView.swift */,
+				F52F75612ED4BE9800A1ED7C /* ReportFlowView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F52F75642ED4BE9800A1ED7C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F52F75632ED4BE9800A1ED7C /* ProfileView.swift */,
+				F52F757F2ED4FBA400A1ED7C /* GeneralSettingsView.swift */,
+				F52F75802ED4FBA400A1ED7C /* HelpSupportView.swift */,
+				F52F75812ED4FBA400A1ED7C /* PrivacySettingsView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F52F75652ED4BE9800A1ED7C /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				F52F755D2ED4BE9800A1ED7C /* Encyclopedia */,
+				F52F75622ED4BE9800A1ED7C /* Home */,
+				F52F75642ED4BE9800A1ED7C /* Profile */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA000014 /* PlantGuard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA000015 /* Build configuration list for PBXNativeTarget "PlantGuard" */;
+			buildPhases = (
+				AA000016 /* Sources */,
+				AA000017 /* Resources */,
+				AA000009 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlantGuard;
+			productName = PlantGuard;
+			productReference = AA000000 /* PlantGuard.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA000018 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = AA000019 /* Build configuration list for PBXProject "PlantGuard" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA000010;
+			productRefGroup = AA000012 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA000014 /* PlantGuard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA000017 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000007 /* Preview Assets.xcassets in Resources */,
+				AA000005 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA000016 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000001 /* PlantGuardApp.swift in Sources */,
+				F52F75662ED4BE9800A1ED7C /* AppTheme.swift in Sources */,
+				F52F75672ED4BE9800A1ED7C /* LocalStorageService.swift in Sources */,
+				F52F75682ED4BE9800A1ED7C /* ReportFlowView.swift in Sources */,
+				F52F75692ED4BE9800A1ED7C /* HistoryListView.swift in Sources */,
+				F52F758C2ED5041F00A1ED7C /* ThemeToggleButton.swift in Sources */,
+				F52F75822ED4FBA400A1ED7C /* PrivacySettingsView.swift in Sources */,
+				F52F75832ED4FBA400A1ED7C /* GeneralSettingsView.swift in Sources */,
+				F52F75842ED4FBA400A1ED7C /* HelpSupportView.swift in Sources */,
+				F52F756A2ED4BE9800A1ED7C /* HistoryRepository.swift in Sources */,
+				F52F756B2ED4BE9800A1ED7C /* ReportRepository.swift in Sources */,
+				F52F756C2ED4BE9800A1ED7C /* UserAccount.swift in Sources */,
+				F52F756D2ED4BE9800A1ED7C /* InvasiveInfo.swift in Sources */,
+				F52F756E2ED4BE9800A1ED7C /* IdentificationResultView.swift in Sources */,
+				F52F756F2ED4BE9800A1ED7C /* LocationService.swift in Sources */,
+				F52F75702ED4BE9800A1ED7C /* ReportRecord.swift in Sources */,
+				F52F75712ED4BE9800A1ED7C /* PlantSpecies.swift in Sources */,
+				F52F75722ED4BE9800A1ED7C /* CameraCaptureView.swift in Sources */,
+				F52F758E2ED51C0600A1ED7C /* InvasiveSpeciesDatabase.swift in Sources */,
+				F52F75732ED4BE9800A1ED7C /* AuthService.swift in Sources */,
+				F52F75742ED4BE9800A1ED7C /* Achievement.swift in Sources */,
+				F52F75752ED4BE9800A1ED7C /* MockDataService.swift in Sources */,
+				F52F75762ED4BE9800A1ED7C /* IdentificationRecord.swift in Sources */,
+				F52F75772ED4BE9800A1ED7C /* ProfileView.swift in Sources */,
+				F52F757E2ED4BF7300A1ED7C /* MainTabView.swift in Sources */,
+				F52F75782ED4BE9800A1ED7C /* NetworkingService.swift in Sources */,
+				F52F75792ED4BE9800A1ED7C /* HomeView.swift in Sources */,
+				F52F757A2ED4BE9800A1ED7C /* FloatingCameraButton.swift in Sources */,
+				F52F757B2ED4BE9800A1ED7C /* QuickIdentificationResponse.swift in Sources */,
+				F52F757C2ED4BE9800A1ED7C /* EncyclopediaView.swift in Sources */,
+				F52F758A2ED500FE00A1ED7C /* AppColorScheme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AA000020 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_HEADER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA000021 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_HEADER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA000022 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_ASSET_PATHS = "\"PlantGuard/Preview Content\"";
+				DEVELOPMENT_TEAM = 89S5G79U2X;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlantGuard/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is needed to take photos of plants for identification";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location access is needed to record the discovery location of invasive species";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location access is needed to record the discovery location of invasive species";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo library access is needed to select plant photos for identification";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.plantguard-UAM.app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA000023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_ASSET_PATHS = "\"PlantGuard/Preview Content\"";
+				DEVELOPMENT_TEAM = 89S5G79U2X;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlantGuard/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is needed to take photos of plants for identification";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location access is needed to record the discovery location of invasive species";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location access is needed to record the discovery location of invasive species";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo library access is needed to select plant photos for identification";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.plantguard-UAM.app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA000015 /* Build configuration list for PBXNativeTarget "PlantGuard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA000022 /* Debug */,
+				AA000023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA000019 /* Build configuration list for PBXProject "PlantGuard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA000020 /* Debug */,
+				AA000021 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA000018 /* Project object */;
+}
